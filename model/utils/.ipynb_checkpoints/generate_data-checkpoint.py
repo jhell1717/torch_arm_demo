@@ -37,7 +37,7 @@ def generate_dataset(n_samples=5000, seed=42):
 
 if __name__ == "__main__":
     X, y = generate_dataset()
-    np.save("/Users/joshuahellewell/arm-project/model/X.npy", X)
-    np.save("/Users/joshuahellewell/arm-project/model/y.npy", y)
+    np.save("/Users/joshuahellewell/arm-project/model/data/X.npy", X)
+    np.save("/Users/joshuahellewell/arm-project/model/data/y.npy", y)
     print(f"Generated {X.shape[0]} samples, X shape {X.shape}, y shape {y.shape}")
     print(f"Cd range: [{y.min():.3f}, {y.max():.3f}]")

@@ -17,8 +17,8 @@ class DragMLP(nn.Module):
         return self.net(x)
 
 def main():
-    X = np.load("/Users/joshuahellewell/arm-project/model/X.npy")
-    y = np.load("/Users/joshuahellewell/arm-project/model/y.npy")
+    X = np.load("/Users/joshuahellewell/arm-project/model/data/X.npy")
+    y = np.load("/Users/joshuahellewell/arm-project/model/data/y.npy")
 
     # normalize inputs -- important since length/width/height/angle
     # have very different scales
@@ -52,9 +52,9 @@ def main():
                 val_loss = loss_fn(model(X_val), y_val)
             print(f"epoch {epoch:4d}  train_loss {loss.item():.5f}  val_loss {val_loss.item():.5f}")
 
-    torch.save(model.state_dict(), "/Users/joshuahellewell/arm-project/model/drag_mlp.pt")
-    np.save("/Users/joshuahellewell/arm-project/model/X_mean.npy", X_mean)
-    np.save("/Users/joshuahellewell/arm-project/model/X_std.npy", X_std)
+    torch.save(model.state_dict(), "/Users/joshuahellewell/arm-project/model/models/drag_mlp.pt")
+    np.save("/Users/joshuahellewell/arm-project/model/data/X_mean.npy", X_mean)
+    np.save("/Users/joshuahellewell/arm-project/model/data/X_std.npy", X_std)
     print("Saved model/drag_mlp.pt")
 
 if __name__ == "__main__":
